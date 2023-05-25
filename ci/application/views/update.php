@@ -1,3 +1,6 @@
+<?php
+// print_r($data);die();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +48,7 @@ form {
 </style>
 <body>
     
-    <form action="http://localhost/ci/index.php/Welcome/updatedata/" method="POST">
+    <form action="<?php echo base_url().'Welcome/updatedata/'.$data->id; ?>" method="POST">
 	<h1  align="center">Registration Form </h1>
     
      
@@ -63,11 +66,26 @@ form {
 		</div>
         <div class="input-group">
 			<label>Gender</label>
-			<select name="gender">
-				<option value="not select">select</option>
-				<option value="male">male</option>
-				<option value="female">female</option>
-	
+			 <select name="gender">
+			<?php if($data->gender=="  select"){ ?>
+				<option value="not select" selected> not select</option>
+				<option value="male" >male</option>
+				<option value="female" >female</option>
+				<?php } else if($data->gender=="male"){ ?>
+				<?php ?>
+				<option value="not select" >not select</option>
+				<option value="male" selected>male</option>
+				<option value="female" >female</option>
+				<?php } 
+				else if($data->gender=="female"){ ?>
+					<option value="not select" >not select</option>
+				<option value="male" >male</option>
+				<option value="female" selected>female</option>
+					<?php }else{ ?>
+
+		<option value="other"></option>
+		<?php } ?> 
+</select>
 		</div>
 		<div class="input-group">
 			<label>Date of Brith</label>
@@ -82,22 +100,93 @@ form {
 		<div class="input-group">
 			<label>Occupation</label>
 			<select name="occupation">
-				<option value="not select">select</option>
+			<?php if($data->occupation==""){ ?>
+				<option value="not select" selected> not select</option>
 				<option value="student">student</option>
 				<option value="pjob">Private Job</option>
 				<option value="gjob">Govt. Job</option>
 				<option value="farmer">Farmer</option>
-			</select>
+				<?php } else if($data->occupation=="student"){ ?>
+				<?php ?>
+				<option value="not select">not select</option>
+				<option value="student"selected>student</option>
+				<option value="pjob">Private Job</option>
+				<option value="gjob">Govt. Job</option>
+				<option value="farmer">Farmer</option>
+				<?php } 
+				else if($data->occupation=="pjob"){ ?>
+					<option value="not select">not select</option>
+				<option value="student">student</option>
+				<option value="pjob" selected>Private Job</option>
+				<option value="gjob">Govt. Job</option>
+				<option value="farmer">Farmer</option>
+						<?php } 
+				else if($data->occupation=="gjob"){ ?>
+					<option value="not select">not select</option>
+				<option value="student">student</option>
+				<option value="pjob">Private Job</option>
+				<option value="gjob" selected>Govt. Job</option>
+				<option value="farmer">Farmer</option>
+						<?php } 
+				else if($data->occupation=="farmer"){ ?>
+					<option value="not select">not select</option>
+				<option value="student">student</option>
+				<option value="pjob">Private Job</option>
+				<option value="gjob" >Govt. Job</option>
+				<option value="farmer" selected>Farmer</option>
+					<?php }else{ ?>
+						
+
+		<option value="other"></option>
+		<?php } ?> 
+</select>
+			
 	
 		</div>
 		<div class="input-group">
 			<label>Qualification</label>
 			<select name="qualification">
-				<option value="not select">select</option>
+				<?php if($data->qualification==""){ ?>
+					<option value="not select" selected>select</option>
 				<option value="10th">10th</option>
 				<option value="12th">12th</option>
 				<option value="Under Graduate">Under Graduate</option>
 				<option value="Post Graduate">Post Graduate</option>
+				<?php } else if($data->qualification=="10th"){ ?>
+				<?php ?>
+				<option value="not select">select</option>
+				<option value="10th" selected>10th</option>
+				<option value="12th">12th</option>
+				<option value="Under Graduate">Under Graduate</option>
+				<option value="Post Graduate">Post Graduate</option>
+				<?php } 
+				else if($data->qualification=="12th"){ ?>
+						<option value="not select">select</option>
+				<option value="10th">10th</option>
+				<option value="12th" selected>12th</option>
+				<option value="Under Graduate">Under Graduate</option>
+				<option value="Post Graduate">Post Graduate</option>
+						<?php } 
+				else if($data->qualification=="Under Graduate"){ ?>
+						<option value="not select">select</option>
+				<option value="10th">10th</option>
+				<option value="12th">12th</option>
+				<option value="Under Gradu" selected>Under Gradu</option>
+				<option value="Post Gradu">Post Gradu</option>
+						<?php } 
+				else if($data->qualification=="Post Gradu"){ ?>
+						<option value="not select">select</option>
+				<option value="10th">10th</option>
+				<option value="12th">12th</option>
+				<option value="Under Gradu">Under Gradu</option>
+				<option value="Post Gradu" selected>Post Gradu</option>
+					<?php }else{ ?>
+						
+
+		<option value="other"></option>
+		<?php } ?> 
+			
+			
 			</select>
 	
 		</div>

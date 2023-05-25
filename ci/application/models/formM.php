@@ -32,25 +32,14 @@ class FormM extends CI_Model{
           return $qurey->row();
       }
     }
-    public function updatedata()
+    public function update_data($id,$fname,$lname,$gender, $dob, $phone,$occupation,$qualification,$laddress, $paddress,$pincode)
         {
-                
-                $fname=$_POST['fname'];
-                $lname=$_POST['lname'];
-                $gender=$_POST['gender'];
-                $dob=$_POST['dob'];
-                $phone=$_POST['phone'];               
-                $occupation=$_POST['occupation'];
-                $qualification=$_POST['qualification'];
-                $laddress=$_POST['laddress'];
-                $paddress=$_POST['paddress'];
-                $pincode=$_POST['pincode'];
-                
-
-             $sql="UPDATE mp SET fname='$fname',lname='$lname',gender='$gender',dob='$dob',phone='$phone' ,occupation='$occupation' ,qualification='$qualification' ,laddress='$laddress' ,paddress='$paddress' ,pincode='$pincode' WHERE id='$id'";
-             $data= $this->query($sql);
+               $data="UPDATE rs SET fname='$fname',lname='$lname',gender='$gender',dob='$dob',phone='$phone' ,occupation='$occupation' ,qualification='$qualification' ,laddress='$laddress' ,paddress='$paddress' ,pincode='$pincode' WHERE id='$id'";
+            // print_r($sql);
+            // die();
+               return $this->db->query($data);
            
-             return $data;
+          //   return $data;
 
             
         }

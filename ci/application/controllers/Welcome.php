@@ -63,13 +63,23 @@ class Welcome extends CI_Controller {
       $this->load->view('update',$data);
     }
 
-    public function updatedata()
+    public function updatedata($id)
      {
 		// echo"ramdev";
 		// die();
+		$fname=$_POST['fname'];
+		$lname=$_POST['lname'];
+		$gender=$_POST['gender'];
+		$dob=$_POST['dob'];
+		$phone=$_POST['phone'];               
+		$occupation=$_POST['occupation'];
+		$qualification=$_POST['qualification'];
+		$laddress=$_POST['laddress'];
+		$paddress=$_POST['paddress'];
+		$pincode=$_POST['pincode'];
 		$this->load->model('formM');
-		$this->formM->updatedata();
-		
+		$this->formM->update_data($id,$fname,$lname,$gender, $dob, $phone,$occupation,$qualification,$laddress, $paddress,$pincode);
+		header('Location:http://localhost/ci/index.php/Welcome/fatch_form/');
      }
 	
 }

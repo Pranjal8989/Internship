@@ -20,6 +20,8 @@
              <td>Local Address</td>
              <td>Permanant Address</td>
              <td>Pincode</td>
+             <td>email</td>
+             <td>password</td>
              <td>Operation</td>
         </tr>
         <?php
@@ -38,6 +40,9 @@
             <td> <?php echo $data->laddress; ?></td>
             <td> <?php echo $data->paddress; ?></td>
             <td> <?php echo $data->pincode; ?></td>
+            <td> <?php echo $data->email; ?></td>
+            <td> <?php echo $data->password; ?></td>
+
            <td>
            <a href="<?php echo base_url('Welcome/edit/'.$data->id);?>">Update </a>
            <a href="<?php echo base_url('Welcome/deletedata/'.$data->id);?>">Delete </a> </td>

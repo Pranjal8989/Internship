@@ -117,6 +117,16 @@ form {
 			
 		</div>
 		<div class="input-group">
+			<label>Email</label>
+			<input type="email" name="email" value="" required>
+			
+		</div>
+		<div class="input-group">
+			<label>Password</label>
+			<input type="text" name="password" value="" required>
+			
+		</div>
+		<div class="input-group">
 			<button class="btn btn-primary" type="submit" name="submit" >Submit</button>
 		</div>
      </div>

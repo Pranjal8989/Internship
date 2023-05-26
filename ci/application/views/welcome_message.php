@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,6 +117,7 @@ form {
 			<input type="number" name="pincode" value="" required>
 			
 		</div>
+		
 		<div class="input-group">
 			<button class="btn btn-primary" type="submit" name="submit" >Submit</button>
 		</div>

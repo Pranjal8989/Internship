@@ -4,12 +4,36 @@ class FormM extends CI_Model{
         parent::__construct();
     }
 
-    function insert_form($fname,$lname,$gender, $dob, $phone,$occupation,$qualification,$laddress, $paddress,$pincode)
+    public function signup_insert($fname,$username,$password)
+    {
+        $q="INSERT INTO signup (fname,username,password) VALUES ('$fname','$username','$password')";
+        $this->db->query($q);
+        return 1;
+    }
+
+
+    public function insert_form($fname,$lname,$gender, $dob, $phone,$occupation,$qualification,$laddress, $paddress,$pincode)
     {
         $sql="INSERT INTO rs (fname,lname ,gender ,dob ,phone, occupation, qualification , laddress , paddress, pincode) VALUES ('$fname','$lname','$gender', '$dob', '$phone','$occupation','$qualification','$laddress', '$paddress','$pincode')";
        
         $this->db->query($sql);
         return 1;
+    }
+
+    
+    public function signin_data($username,$password)
+    {
+        $data="SELECT * FROM signup WHERE username='$username' and password='$password'";
+       
+        $q=$this->db->query($data);
+        return $q->result();
+        // if($data->num_rows() )
+        // {
+        //     return true;
+        // }else{
+        //     return false;
+        // }
+
     }
      public function display()
     {

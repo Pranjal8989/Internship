@@ -1,13 +1,16 @@
+
+<?php include 'header.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete record</title>
+    <title>DISPLAY</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.rtl.min.css" integrity="sha384-T5m5WERuXcjgzF8DAb7tRkByEZQGcpraRTinjpywg37AO96WoYN9+hrhDVoM6CaT" crossorigin="anonymous">
 </head>
 <body>
-    <table border="3">
+    <table border="3" class="table table-dark table-striped-columns">
         <tr>
              <td>S.No</td>
              <td>First Name</td>
@@ -38,9 +41,10 @@
             <td> <?php echo $data->laddress; ?></td>
             <td> <?php echo $data->paddress; ?></td>
             <td> <?php echo $data->pincode; ?></td>
+
            <td>
-           <a href="<?php echo base_url('Welcome/edit/'.$data->id);?>">Update </a>
-           <a href="<?php echo base_url('Welcome/deletedata/'.$data->id);?>">Delete </a> </td>
+           <a  class="btn btn-primary" href="<?php echo base_url('Welcome/edit/'.$data->id);?>">Update </a>
+           <a class="btn btn-danger" href="<?php echo base_url('Welcome/deletedata/'.$data->id);?>">Delete </a> </td>
         </tr>
               
 <?php
@@ -48,5 +52,6 @@
             
          ?>
 </table>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -32,38 +32,76 @@ class Welcome extends CI_Controller {
 		// $this->load->model('formM');
 		// $this->formM->signin_data();
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('email','email','required');
+		$this->form_validation->set_rules('username','username','required');
 		$this->form_validation->set_rules('password','password','required');
 		$this->form_validation->set_error_delimiters('<div class="text-danger">', '</div>');
 
 		if($this->form_validation->run())
 		{
-			$email= $_POST['email'];
+		$username= $_POST['username'];
 		$password=$_POST['password'];
 		// print_r($_POST);die();
 		$this->load->model('formM');
-		$r=$this->formM->signin_data($email,$password);
+		$r=$this->formM->signin_data($username,$password);
 		if($r)
 		{
 			//echo "match";
 			$this->load->library('session');
 			$this->session->set_userdata('id',$r);
-			$this->load->view('pranjal');
+			// $this->load->model('formM');
+			// $data['rs']=$this->formM->display();
+	   
+			// $this->load->view('table',$data);
+				 $this->load->view('header');
+				 $this->load->view('footer');
 		}
 		else{
-			// $this->load->library('session');
-			// $this->session->set_flashdata('response','record not saved');
-			// return redirect("Welcome/index/");
-			echo "failed login";
+			$this->load->library('session');
+			$this->session->set_flashdata('pass','Invalied username or password');
+		    redirect(base_url("Welcome"));
+			// echo "failed login";
 		}
 
 		}else{
 			$this->load->view("login");
 		}
 	}
+	public function create()
+	{
+		 $this->load->view('header');
+		$this->load->view('welcome_message');
+		$this->load->view('footer');
+	}
+	public function dashboard()
+	{
+		$this->load->view('header');
+		$this->load->view('footer');
+	}
 	public function login_form()
 	{
-        $this->load->view('welcome_message');
+        $this->load->view('pranjal');
+	}
+	public function logout()
+	{
+		$this->db->close();
+		$this->session->sess_destroy();
+       redirect(base_url('Welcome'));
+	}
+	public function signup()
+	{
+		$fname=$_POST['fname'];
+		$username=$_POST['username'];
+		$password=$_POST['password'];
+		$this->load->model('formM');
+		$e=$this->formM->signup_insert($fname,$username,$password);
+		if($e)
+		{
+			//echo "match";
+			$this->load->library('session');
+			$this->session->set_userdata('id',$e);
+			$this->session->set_flashdata('username','Data is store successfully');
+			 redirect(base_url('Welcome'));
+		}
 	}
 	
 	public function insert()
@@ -81,12 +119,9 @@ class Welcome extends CI_Controller {
 		$laddress = $_POST['laddress'];
 		$paddress = $_POST['paddress'];
 		$pincode = $_POST['pincode'];
-		$email= $_POST['email'];
-		$password=$_POST['password'];
-
 		$this->load->model('formM');
-		$this->formM->insert_form($fname,$lname,$gender, $dob, $phone,$occupation,$qualification,$laddress, $paddress,$pincode,$email,$password);
-		header('Location:http://localhost/ci/index.php/Welcome/fatch_form/');
+		$this->formM->insert_form($fname,$lname,$gender, $dob, $phone,$occupation,$qualification,$laddress, $paddress,$pincode);
+		return redirect(base_url('Welcome/fatch_form'));
 	}
 	public function fatch_form()
 	{
@@ -123,13 +158,26 @@ class Welcome extends CI_Controller {
 		$laddress=$_POST['laddress'];
 		$paddress=$_POST['paddress'];
 		$pincode=$_POST['pincode'];
-		$email= $_POST['email'];
-		$password=$_POST['password'];
+		// $email= $_POST['email'];
+		// $password=$_POST['password'];
 		$this->load->model('formM');
-		$this->formM->update_data($id,$fname,$lname,$gender, $dob, $phone,$occupation,$qualification,$laddress, $paddress,$pincode,$email,$password);
+		$this->formM->update_data($id,$fname,$lname,$gender, $dob, $phone,$occupation,$qualification,$laddress, $paddress,$pincode);
 		header('Location:http://localhost/ci/index.php/Welcome/fatch_form/');
      }
-	
+	 public function fedit()
+    {
+      $this->load->model('formM');
+     $rs['data']=$this->formM->fRecords($id);
+      $this->load->view('forgot',$rs);
+    }
+	public function forgot($id)
+	{
+		$fname=$_POST['fname'];
+		$username=$_POST['username'];
+		$password=$_POST['password'];
+		$this->load->model('formM');
+		$this->formM->forgot_data($id,$fname,$username,$password);
+		}
 }
 
 

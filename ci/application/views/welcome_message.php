@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,15 +14,19 @@
     font-size: 20px;
 }
 form {
-	height: 100px auto;
+	height: 500px auto;
     width: 40%;
-    margin: 50px auto;
+    /* margin: 50px auto; */
     text-align: left;
     padding: 20px; 
     border: 2px solid #bbbbbb; 
     border-radius: 5px;
 	background-color:lightyellow;
 	box-shadow: 0px 0px 10px rgba(0,0,0, 0.2);
+	margin-top: 50px;
+  margin-bottom: 200px;
+  margin-right: 500px;
+  margin-left: 500px;
 }
 .input-group {
     margin: 30px 30px 30px 30px;
@@ -61,22 +66,25 @@ form {
 			<input type="text" name="lname" value="" required>
 	
 		</div>
-        <div class="input-group">
-			<label>Gender</label>
-			<select name="gender">
-				<option value="not select">select</option>
-				<option value="male">male</option>
-				<option value="female">female</option>
-	
-		</div>
 		<div class="input-group">
 			<label>Date of Brith</label>
 			<input type="Date" name="dob" required>
 		
         </div>	
+      
+	
 		<div class="input-group">
 			<label>Phone</label>
 			<input type="text" name="phone" value="" required>
+	
+		</div>
+		<div class="input-group">
+			<label>Gender</label>
+			<select name="gender">
+				<option value="not select">select</option>
+				<option value="male">male</option>
+				<option value="female">female</option>
+	</select>
 	
 		</div>
 		<div class="input-group">
@@ -116,16 +124,7 @@ form {
 			<input type="number" name="pincode" value="" required>
 			
 		</div>
-		<div class="input-group">
-			<label>Email</label>
-			<input type="email" name="email" value="" required>
-			
-		</div>
-		<div class="input-group">
-			<label>Password</label>
-			<input type="text" name="password" value="" required>
-			
-		</div>
+		
 		<div class="input-group">
 			<button class="btn btn-primary" type="submit" name="submit" >Submit</button>
 		</div>

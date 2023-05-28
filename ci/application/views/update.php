@@ -205,7 +205,7 @@ form {
 			<input type="number" name="pincode" value="<?php echo $data->pincode; ?>" required>
 			
 		</div>
-		<div class="input-group">
+		<!-- <div class="input-group">
 			<label>Email</label>
 			<input type="email" name="email" value="<?php echo $data->email; ?>" required>
 			
@@ -214,7 +214,7 @@ form {
 			<label>Password</label>
 			<input type="text" name="password" value="<?php echo $data->password; ?>" required>
 			
-		</div>
+		</div> -->
 		<div class="input-group">
 			<button class="btn btn-primary" type="submit" name="submit" >Submit</button>
 		</div>
